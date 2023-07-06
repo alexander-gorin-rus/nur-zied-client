@@ -1,0 +1,27 @@
+<mat-card>
+    <mat-card-header><h3>Регистрация работника</h3></mat-card-header>
+    <mat-card-content>
+        <form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedRegistration()">
+            <mat-form-field class="example-full-width">
+              <mat-label>имя</mat-label>
+              <input matInput form formControlName="firstName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>фамилия</mat-label>
+                <input matInput form formControlName="lastName">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>логин</mat-label>
+                <input matInput form formControlName="login">
+            </mat-form-field>
+            <mat-form-field class="example-full-width">
+                <mat-label>пароль</mat-label>
+                <input type="password" matInput form formControlName="password">
+            </mat-form-field>
+            <div>
+                <button mat-raised-button color="primary">Зарегистрироваться</button>
+                <a routerLink="/login" mat-raised-button color="accent">На страницу регистрации</a>
+            </div>
+          </form>
+    </mat-card-content>
+  </mat-card>
