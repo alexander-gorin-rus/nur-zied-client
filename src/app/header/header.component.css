@@ -1,0 +1,10 @@
+@media (max-width: 600px) {
+    .spacer {
+      display: none;
+    }
+}
+
+.link{
+    color: white !important;
+    font-size: 0.9rem;
+}
