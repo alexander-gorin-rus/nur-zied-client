@@ -1,0 +1,13 @@
+<mat-toolbar color="primary">
+        <a class="link" routerLink="/register" mat-menu-item>Страница регистрации</a>
+        <a class="link" routerLink="/login" mat-menu-item>Страница логина</a>
+    <mat-menu #menu="matMenu">
+        <a routerLink="/operator" mat-menu-item>Страница машиниста экскаватора</a>
+        <a routerLink="/fuel" mat-menu-item>Страница заправщика</a>
+        <a routerLink="/master" mat-menu-item>Страница мастера</a>
+    </mat-menu>
+    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggle menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+</mat-toolbar>
+  

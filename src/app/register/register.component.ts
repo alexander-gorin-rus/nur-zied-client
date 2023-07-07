@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, Validators } from '@angular/forms';
-import { Roles } from '../shared/enums';
 import { ToastrService } from 'ngx-toastr';
-import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'app-register',
@@ -18,29 +17,33 @@ export class RegisterComponent {
     private router: Router,
   ) {}
 
+  loading = false;
+
   registerForm = this.builder.group({
     firstName:this.builder.control('', Validators.compose([Validators.required])),
     lastName:this.builder.control('', Validators.compose([Validators.required])),
     login:this.builder.control('',
       Validators.compose([
         Validators.required,
-        Validators.min(3),
-        Validators.max(20)
+        Validators.minLength(3),
+        Validators.maxLength(20)
       ])),
     password:this.builder.control('',
       Validators.compose([
         Validators.required,
-        Validators.min(3),
-        Validators.max(20),
+        Validators.minLength(3),
+        Validators.maxLength(20),
       ])),
     isActive: this.builder.control(false),
   });
-
+  
   async proceedRegistration () {
     if (this.registerForm.valid) {
+      this.loading = true; 
       (await this.service.registerWorker(this.registerForm.value)).subscribe(res => {
         this.toastr.success('Вы успешно зарегистировались', 'Ваш профиль будет активирован после подтверждения администратором');
-        this.router.navigate(['/login'])
+        this.router.navigate(['/login']);
+        this.loading = false; 
       })
     } else {
       this.toastr.warning('Заполните все поля')

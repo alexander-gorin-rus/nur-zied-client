@@ -13,8 +13,11 @@ import { LoginComponent } from './login/login.component';
 import { HomeComponent } from './home/home.component';
 import { WorkersListComponent } from './workers-list/workers-list.component';
 import { UpdatePopupComponent } from './update-popup/update-popup.component';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
+import { HeaderComponent } from './header/header.component';
+import { ForbiddenComponent } from './forbidden/forbidden.component';
+import { OperatorComponent } from './operator/operator.component';
+import { MasterComponent } from './master/master.component';
+import { FuelAttendantComponent } from './fuel-attendant/fuel-attendant.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +27,11 @@ import { MatCardModule } from '@angular/material/card';
     HomeComponent,
     WorkersListComponent,
     UpdatePopupComponent,
+    HeaderComponent,
+    ForbiddenComponent,
+    OperatorComponent,
+    MasterComponent,
+    FuelAttendantComponent,
   ],
   imports: [
     BrowserModule,

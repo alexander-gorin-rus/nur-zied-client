@@ -1,5 +1,5 @@
 <mat-card>
-    <mat-card-header><h3>Регистрация работника</h3></mat-card-header>
+    <mat-card-header class="card-header"><h2>Регистрация работника</h2></mat-card-header>
     <mat-card-content>
         <form class="example-form" [formGroup]="registerForm" (ngSubmit)="proceedRegistration()">
             <mat-form-field class="example-full-width">
@@ -19,8 +19,11 @@
                 <input type="password" matInput form formControlName="password">
             </mat-form-field>
             <div>
-                <button mat-raised-button color="primary">Зарегистрироваться</button>
-                <a routerLink="/login" mat-raised-button color="accent">На страницу регистрации</a>
+                <button mat-raised-button color="primary" [disabled]="!registerForm.valid">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-2"></span>
+                    Зарегистрироваться
+                </button>
+                <a routerLink="/login" mat-raised-button color="accent">На страницу логина</a>
             </div>
           </form>
     </mat-card-content>
