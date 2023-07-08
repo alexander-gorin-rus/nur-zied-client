@@ -8,16 +8,16 @@ import { MaterialModule } from 'src/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ToastrModule } from 'ngx-toastr';
-import { RegisterComponent } from './register/register.component';
-import { LoginComponent } from './login/login.component';
-import { HomeComponent } from './home/home.component';
-import { WorkersListComponent } from './workers-list/workers-list.component';
-import { UpdatePopupComponent } from './update-popup/update-popup.component';
-import { HeaderComponent } from './header/header.component';
-import { ForbiddenComponent } from './forbidden/forbidden.component';
-import { OperatorComponent } from './operator/operator.component';
-import { MasterComponent } from './master/master.component';
-import { FuelAttendantComponent } from './fuel-attendant/fuel-attendant.component';
+import { HomeComponent } from './components/home/home.component';
+import { WorkersListComponent } from './components/workers-list/workers-list.component';
+import { UpdatePopupComponent } from './components/update-popup/update-popup.component';
+import { HeaderComponent } from './components/header/header.component';
+import { ForbiddenComponent } from './components/forbidden/forbidden.component';
+import { OperatorComponent } from './components/operator/operator.component';
+import { MasterComponent } from './components/master/master.component';
+import { FuelAttendantComponent } from './components/fuel-attendant/fuel-attendant.component';
+import { LoginComponent } from './components/login/login.component';
+import { RegisterComponent } from './components/register/register.component';
 
 @NgModule({
   declarations: [
