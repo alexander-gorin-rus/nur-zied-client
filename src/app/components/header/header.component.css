@@ -1,10 +1,9 @@
-@media (max-width: 600px) {
-    .spacer {
-      display: none;
-    }
+.navbar-title {
+  margin-left: 16px;
 }
 
-.link{
-    color: white !important;
-    font-size: 0.9rem;
+@media (max-width: 600px) {
+  .navbar-title {
+    display: none;
+  }
 }

@@ -18,6 +18,9 @@ import { MasterComponent } from './components/master/master.component';
 import { FuelAttendantComponent } from './components/fuel-attendant/fuel-attendant.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { AuthGuard } from '../app/guard/auth.guard';
+import { CookieService } from 'ngx-cookie-service';
+import { DirectorComponent } from './components/director/director.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +35,7 @@ import { RegisterComponent } from './components/register/register.component';
     OperatorComponent,
     MasterComponent,
     FuelAttendantComponent,
+    DirectorComponent,
   ],
   imports: [
     BrowserModule,
@@ -42,7 +46,7 @@ import { RegisterComponent } from './components/register/register.component';
     HttpClientModule,
     ToastrModule.forRoot(),
   ],
-  providers: [],
+  providers: [AuthGuard, CookieService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

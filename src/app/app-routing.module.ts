@@ -8,16 +8,19 @@ import { FuelAttendantComponent } from './components/fuel-attendant/fuel-attenda
 import { ForbiddenComponent } from './components/forbidden/forbidden.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DirectorComponent } from './components/director/director.component';
+import { ROUTE_PATHS } from './shared/paths';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
-  {path: 'register', component: RegisterComponent},
-  {path: 'login', component: LoginComponent},
-  {path: 'workers', component: WorkersListComponent},
-  {path: 'operator', component: OperatorComponent},
-  {path: 'master', component: MasterComponent},
-  {path: 'fuel', component: FuelAttendantComponent},
-  {path: 'forbidden', component: ForbiddenComponent},
+  {path: ROUTE_PATHS.Register, component: RegisterComponent},
+  {path: ROUTE_PATHS.Login, component: LoginComponent},
+  {path: ROUTE_PATHS.Workers, component: WorkersListComponent},
+  {path: ROUTE_PATHS.Operator, component: OperatorComponent},
+  {path: ROUTE_PATHS.Master, component: MasterComponent},
+  {path: ROUTE_PATHS.Fueler, component: FuelAttendantComponent},
+  {path: ROUTE_PATHS.Director, component: DirectorComponent},
+  {path: ROUTE_PATHS.Forbiddeb, component: ForbiddenComponent},
 ];
 
 @NgModule({
