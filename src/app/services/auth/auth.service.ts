@@ -31,6 +31,18 @@ export class AuthService {
     return await this.http.delete(this.apiUrl + '/deleteWorker', id);
   }
 
+  public setRole(role: string) {
+    localStorage.setItem("role", role)
+  }
+
+  public getRole() {
+    const roleString = localStorage.getItem("role");
+    if (roleString !== null) {
+      return roleString;
+    }
+    return null;
+  }
+
   setToken(token: string): void {
     this.cookieService.set(this.tokenKey, token);
   }
@@ -41,5 +53,9 @@ export class AuthService {
 
   removeToken(): void {
     this.cookieService.delete(this.tokenKey);
+  }
+
+  public isLoggedIn() {
+    return this.getRole() && this.getToken();
   }
 }

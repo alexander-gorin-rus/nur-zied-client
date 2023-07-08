@@ -1,13 +1,96 @@
-<mat-toolbar color="primary">
-        <a class="link" routerLink="/register" mat-menu-item>Страница регистрации</a>
-        <a class="link" routerLink="/login" mat-menu-item>Страница логина</a>
-    <mat-menu #menu="matMenu">
-        <a routerLink="/operator" mat-menu-item>Страница машиниста экскаватора</a>
-        <a routerLink="/fuel" mat-menu-item>Страница заправщика</a>
-        <a routerLink="/master" mat-menu-item>Страница мастера</a>
-    </mat-menu>
-    <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Toggle menu">
-      <mat-icon>more_vert</mat-icon>
-    </button>
+<!-- <mat-sidenav-container>
+  <mat-sidenav #sidenav mode="over" [opened]="isSidenavOpen">
+    <mat-nav-list>
+      <a mat-list-item routerLink="/register">Регистрация</a>
+      <a mat-list-item *ngIf="!isLoggedIn()" routerLink="/login">Логин</a>
+      <button mat-button *ngIf="isLoggedIn()">Выйти</button>
+    </mat-nav-list>
+    <mat-divider></mat-divider>
+    <mat-nav-list>
+      <a mat-list-item routerLink="/operator">Страница машиниста экскаватора</a>
+      <a mat-list-item routerLink="/fuel">Страница заправщика</a>
+      <a mat-list-item routerLink="/master">Страница мастера</a>
+      <a mat-list-item routerLink="/director">Страница директора</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button mat-icon-button (click)="toggleSidenav()" aria-label="Toggle menu">
+        <mat-icon>menu</mat-icon>
+      </button>
+      <span class="navbar-title">My App</span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container> -->
+
+
+<mat-toolbar color="primary" class="mat-elevation-z8">
+  <button (click)="drawer.toggle()" mat-icon-button>
+      <mat-icon>menu</mat-icon>
+  </button>
+  <span class="example-spacer"></span>
+  <mat-menu #lvl1master="matMenu">
+      <button [matMenuTriggerFor]="company" mat-menu-item>Company</button>
+      <button [matMenuTriggerFor]="customer" mat-menu-item>Customer</button>
+      <button [matMenuTriggerFor]="product" mat-menu-item>Product</button>
+  </mat-menu>
+
+  <mat-menu #company="matMenu">
+      <button mat-menu-item>Term</button>
+      <button mat-menu-item>Tax</button>
+      <button mat-menu-item>Currency</button>
+  </mat-menu>
+  <mat-menu #customer="matMenu">
+      <button mat-menu-item>Type</button>
+      <button mat-menu-item>Tax</button>
+  </mat-menu>
+  <mat-menu #product="matMenu">
+      <button mat-menu-item>Category</button>
+      <button [matMenuTriggerFor]="variant" mat-menu-item>Variant</button>
+      <button mat-menu-item>UOM</button>
+  </mat-menu>
+
+  <mat-menu #variant="matMenu">
+      <button mat-menu-item>Color</button>
+      <button mat-menu-item>Size</button>
+  </mat-menu>
+  <button (click)="badgevisibility()"  mat-icon-button>
+      <mat-icon matBadgeColor="accent" matBadge="15" [matBadgeHidden]="badgevisible" matBadgeSize="small">notifications</mat-icon>
+  </button>
 </mat-toolbar>
-  
+<mat-drawer-container autosize>
+  <mat-drawer #drawer opened="true" mode="side" position="start">
+  <mat-nav-list>
+      <mat-list-item *ngIf="!isLoggedIn()">
+          <button routerLink="/login" mat-button><mat-icon>login</mat-icon>Войти</button>
+      </mat-list-item>
+      <mat-list-item *ngIf="!isLoggedIn()">
+        <button routerLink="/register" mat-button><mat-icon>account_box</mat-icon>Зарегистрироваться</button>
+    </mat-list-item>
+      <mat-list-item *ngIf="isLoggedIn()">
+          <button mat-button (click)="logout()"><mat-icon>close</mat-icon>Выйти</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="slider" mat-button><mat-icon>explore</mat-icon> Slider</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button routerLink="table" mat-button><mat-icon>table</mat-icon> Table</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button mat-button><mat-icon>settings</mat-icon> Settings</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button mat-button><mat-icon>help</mat-icon> Help</button>
+      </mat-list-item>
+      <mat-list-item>
+          <button mat-button><mat-icon>analytics</mat-icon> analytics</button>
+      </mat-list-item>
+  </mat-nav-list>
+  </mat-drawer>
+  <mat-drawer-content>
+      <div style="text-align: center;min-height: 600px;">
+          <router-outlet></router-outlet>
+          </div>
+  </mat-drawer-content>
+</mat-drawer-container>

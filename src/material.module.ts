@@ -13,6 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatIconModule } from '@angular/material/icon';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatListModule } from '@angular/material/list';
+import { MatBadgeModule } from '@angular/material/badge'
 
 @NgModule({
     exports: [
@@ -29,7 +32,10 @@ import { MatIconModule } from '@angular/material/icon';
         MatFormFieldModule,
         MatToolbarModule,
         MatMenuModule,
-        MatIconModule
+        MatIconModule,
+        MatSidenavModule,
+        MatListModule,
+        MatBadgeModule
     ]
 })
 
